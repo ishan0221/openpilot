@@ -93,6 +93,9 @@ def main() -> NoReturn:
       cloudlog.event("pandad.flash_and_connect", count=count)
       params.remove("PandaSignatures")
 
+      HARDWARE.recover_internal_panda()
+      time.sleep(3)  # wait to come back up
+
       # Handle missing internal panda
       if no_internal_panda_count > 0:
         if no_internal_panda_count == 3:
